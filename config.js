@@ -1,0 +1,24 @@
+const userURL="https://petland.lk/app/pet_care/public/api/user";
+const doctorURL="https://petland.lk/app/pet_care/public/api/doctor";
+const petURL="https://petland.lk/app/pet_care/public/api/pet";
+const breedURL="https://petland.lk/app/pet_care/public/api/breed";
+const careCenterURL="https://petland.lk/app/pet_care/public/api/care_center";
+const treatmentURL="https://petland.lk/app/pet_care/public/api/treatments";
+const vaccinationURL="https://petland.lk/app/pet_care/public/api/pet_vaccination";
+const treatmentsURL="https://petland.lk/app/pet_care/public/api/pet_treatments";
+const surgeriesURL="https://petland.lk/app/pet_care/public/api/pet_surgeries";
+const postURL="https://petland.lk/app/pet_care/public/api/post";
+const traineeURL="https://petland.lk/app/pet_care/public/api/pet_trainee";
+const notiURL="https://petland.lk/app/pet_care/public/api/notification";
+const api="https://petland.lk/app/pet_care/public/api";
+const likeURL="https://petland.lk/app/pet_care/public/api/likes";
+const commentsURL="https://petland.lk/app/pet_care/public/api/comments";
+
+// const trayURL="http://localhost/surepos/public/api/tray";
+// const lorryURL="http://localhost/surepos/public/api/lorry";
+// const stock_itemURL="http://localhost/surepos/public/api/stock_item";
+// const itemURL="http://localhost/surepos/public/api/item";
+// const categoryURL="http://localhost/surepos/public/api/category";
+// const cake_typeURL="http://localhost/surepos/public/api/cake_type";
+// const cakeURL="http://localhost/surepos/public/api/cake";
+// const sessionURL="http://localhost/surepos/public/api/sales_session";
