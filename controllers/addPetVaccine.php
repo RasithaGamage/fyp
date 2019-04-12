@@ -10,13 +10,14 @@ require 'conn.php';
  $nxtDate = $_POST["nxtDate"];
  $comment = $_POST["comment"];
  $age = $_POST["petAge"];
+ $centre=$_POST["careCenter"];
  $doc=$_SESSION["Name"];
  
 
 
 
     $result = mysqli_query($con,"INSERT INTO pet_vaccinations(VACNAME,PETID,VACDATE,AGE,DOC,CENTRE,REMARK,NXTVACDATE,COMMENT) 
-    Values ('$vaccination','$petID','$vaccDate','$age','$doc','Colombo','$remarks1', '$nxtDate','$comment')");
+    Values ('$vaccination','$petID','$vaccDate','$age','$doc','$centre','$remarks1', '$nxtDate','$comment')");
 
 if(mysqli_affected_rows($con)==0) {
     echo "failed";

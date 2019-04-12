@@ -330,8 +330,8 @@ function showResult(str) {
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Care
                                                                             Center Name</label>
-                                                                        <input type="text" class="form-control" name="careCenter1" disabled
-                                                                               id="careCenter1" placeholder="Enter Address">
+                                                                        <input type="text" class="form-control" value="Kandy" name="careCenter" readonly
+                                                                               id="careCenter1" placeholder="Enter Address" >
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Remarks</label>
