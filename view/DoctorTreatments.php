@@ -932,17 +932,19 @@ function showResult(str) {
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form>
+                                                                <form action="../controllers/addPetTrainning.php" method="POST">
 
                                                                     <div class="form-group">
                                                                         <label for="client-mobile" class="col-form-label">Training
                                                                             Name</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="trName"
                                                                                id="traine-name" placeholder="Training Name">
                                                                     </div>
+                                                                    <input type="text" name="petId4" value="<?php echo $petid ?>" hidden />
+                                                                    <input type="text" name="petAge4" value="<?php echo $age ?>" hidden />
                                                                     <div class="form-group">
                                                                         <label>Training Type</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="trType"
                                                                                id="traine-type" placeholder="Training Type">
                                                                     </div>
                                                                     <div class="form-group">
@@ -953,7 +955,7 @@ function showResult(str) {
                                                             <span class="input-group-text"><i
                                                                         class="fa fa-calendar"></i></span>
                                                                             </div>
-                                                                            <input type="date" class="form-control" id="traine-date"
+                                                                            <input type="date" class="form-control" id="traine-date" name="trDate"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
                                                                                    data-mask
                                                                                    placeholder="Enter Date">
@@ -974,22 +976,23 @@ function showResult(str) {
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Care
                                                                             Center Name</label>
-                                                                        <input type="text" class="form-control" name="address" disabled
+                                                                        <input type="text" class="form-control" name="trCenter" value="Kandy" readonly
                                                                                id="tree-center" placeholder="Enter Address">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Remarks</label>
-                                                                        <textarea class="form-control" rows="3" id="traine-remark"
+                                                                        <textarea class="form-control" rows="3" id="traine-remark" name="remarks4"
                                                                                   placeholder="Enter ..."></textarea>
                                                                     </div>
-                                                                </form>
+                                                               
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="button" id="save-traineBtn" class="btn btn-primary">Save</button>
+                                                                <button type="submit" id="save-traineBtn" class="btn btn-primary">Save</button>
                                                             </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
