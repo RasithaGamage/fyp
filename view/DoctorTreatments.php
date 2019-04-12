@@ -515,18 +515,20 @@ function showResult(str) {
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form>
+                                                                <form method="POST" action="../controllers/addPetTreatment.php">
                                                                     <div class="form-group">
                                                                         <label for="client-mobile" class="col-form-label">Symptoms</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="symptoms"
                                                                                id="pet-Symptoms" placeholder="Enter Symptoms">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="client-mobile" class="col-form-label">Diagnosis/Disease</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="disease"
                                                                                id="pet-Diagnosis" 
                                                                                placeholder="Enter Diagnosis/Disease">
                                                                     </div>
+                                                                    <input type="text" name="petId2" value="<?php echo $petid ?>" hidden />
+                                                                    <input type="text" name="petAge2" value="<?php echo $age ?>" hidden />
                                                                     <div class="form-group">
                                                                         <label for="inputdate" class="col-sm-2 control-label">Date</label>
 
@@ -535,7 +537,7 @@ function showResult(str) {
                                                             <span class="input-group-text"><i
                                                                         class="fa fa-calendar"></i></span>
                                                                             </div>
-                                                                            <input type="date" class="form-control" id="pet-tretments-date"
+                                                                            <input type="date" name="treatedDate" class="form-control" id="pet-tretments-date"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
                                                                                    data-mask
                                                                                    placeholder="Enter Date">
@@ -556,13 +558,13 @@ function showResult(str) {
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Care
                                                                             Center Name</label>
-                                                                        <input type="text" class="form-control" name="address" disabled
-                                                                               id="pet-treatments-center" placeholder="Enter Address">
+                                                                        <input type="text" class="form-control" value="Kandy" name="treatcareCenter" readonly
+                                                                               id="pet-treatments-center"  placeholder="Enter Address">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Next
                                                                             Generation Risk</label>
-                                                                        <select class="form-control" id="nxt-treatments" name="nxt-treatments">
+                                                                        <select class="form-control" id="nxt-treatments" name="nxt_treatments">
                                                                             <option>Non</option>
                                                                             <option>Medium</option>
                                                                             <option>High</option>
@@ -570,7 +572,7 @@ function showResult(str) {
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Remarks</label>
-                                                                        <textarea class="form-control" rows="3" id="remark-treatments"
+                                                                        <textarea class="form-control" rows="3" name="remarks2" id="remark-treatments"
                                                                                   placeholder="Enter ..."></textarea>
                                                                     </div>
                                                                     
@@ -584,7 +586,7 @@ function showResult(str) {
                                                             <span class="input-group-text"><i
                                                                         class="fa fa-calendar"></i></span>
                                                                             </div>
-                                                                            <input type="date" class="form-control" id="nxttreatmentDate1"
+                                                                            <input type="date" class="form-control" id="nxttreatmentDate1" name="nxtTreatDate"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
                                                                                    data-mask
                                                                                    placeholder="Enter Date">
@@ -593,17 +595,18 @@ function showResult(str) {
                                                                     
                                                                     <div class="form-group">
                                                                         <label for="commentTreament">Comment</label>
-                                                                        <input type="text" class="form-control" name="comment"
+                                                                        <input type="text" class="form-control" name="comment2"
                                                                                id="commentTreament" placeholder="Treament Name/Comment">
                                                                     </div>
-                                                                </form>
+                                                                
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="button" class="btn btn-primary" id="addTreatmentsBtn">Save</button>
+                                                                <button type="submit" class="btn btn-primary" id="addTreatmentsBtn">Save</button>
                                                             </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
