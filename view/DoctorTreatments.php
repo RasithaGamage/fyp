@@ -287,17 +287,17 @@ function showResult(str) {
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form>
+                                                                <form action="../controllers/addPetVaccine.php" method="POST">
                                                                     <div class="form-group">
                                                                         <label>Vaccination</label>
                                                                         <select class="form-control" name="vaccination" id="vaccinationID">
                                                                             <option></option>
-                                                                            <!--<option>Canine Parvovirus</option>-->
-                                                                            <!--<option>Coronavirus</option>-->
-                                                                            <!--<option>Distemper-Measles</option>-->
-                                                                            <!--<option>Leptospirosis</option>-->
-                                                                            <!--<option>Rabies</option>-->
-                                                                            <!--<option>Distemper Hepatitis (CAV-2)</option>-->
+                                                                            <option>Canine Parvovirus</option>
+                                                                            <option>Coronavirus</option>
+                                                                            <option>Distemper-Measles</option>
+                                                                            <option>Leptospirosis</option>
+                                                                            <option>Rabies</option>
+                                                                            <option>Distemper Hepatitis (CAV-2)</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -310,7 +310,7 @@ function showResult(str) {
                                                                             </div>
                                                                             <input type="date" class="form-control" id="vaccinationDate"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
-                                                                                   placeholder="Enter Date">
+                                                                                   placeholder="Enter Date" name="vaccDate">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group d-none">vaccinationDate
@@ -319,6 +319,8 @@ function showResult(str) {
                                                                         <input type="number" class="form-control" name="contact"
                                                                                id="pet-age" placeholder="Enter age">
                                                                     </div>
+                                                                    <input type="text" name="petId" value="<?php echo $petid ?>" hidden />
+                                                                    <input type="text" name="petAge" value="<?php echo $age ?>" hidden />
                                                                     <div class="form-group d-none">
                                                                         <label for="exampleInputName">Doctor Name</label>
                                                                         <input type="text" class="form-control" name="firstname" disabled
@@ -333,7 +335,7 @@ function showResult(str) {
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Remarks</label>
-                                                                        <textarea class="form-control" rows="3" id="remarks1"
+                                                                        <textarea class="form-control" rows="3" id="remarks1" name="remarks"
                                                                                   placeholder="Any remarks"></textarea>
                                                                     </div>
                                                                     
@@ -349,7 +351,7 @@ function showResult(str) {
                                                                             </div>
                                                                             <input type="date" class="form-control" id="nxtVacDate"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
-                                                                                   placeholder="Enter Date">
+                                                                                   placeholder="Enter Date" name="nxtDate">
                                                                         </div>
                                                                     </div>
                                                                     
@@ -359,14 +361,15 @@ function showResult(str) {
                                                                                id="commentvaccination" placeholder="Vaccination Name/Comment">
                                                                     </div>
                                                                 
-                                                                </form>
+                                                                
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="button" id="addVaccinationBtn" class="btn btn-primary">Save</button>
+                                                                <button type="submit" id="addVaccinationBtn" class="btn btn-primary">Save</button>
                                                             </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
