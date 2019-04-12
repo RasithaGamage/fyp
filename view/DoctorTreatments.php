@@ -34,8 +34,12 @@ $result2 = mysqli_query($con,"SELECT A.USERID,B.NAME,C.MOBNO,C.HOMENO,C.IMAGE FR
 
 //get pet vaccination data
 $result3 = mysqli_query($con,"SELECT * FROM Pet_Vaccinations  WHERE PETID='".$petid."'");
-    
-   
+//get pet treatment data
+$result4 = mysqli_query($con,"SELECT * FROM pet_treatments  WHERE PETID='".$petid."'");
+//get pet operation data
+$result5 = mysqli_query($con,"SELECT * FROM pet_operations  WHERE PETID='".$petid."'");
+//get pettraining data
+$result6 = mysqli_query($con,"SELECT * FROM pet_trainings WHERE PETID='".$petid."'");
 
 
 
@@ -622,10 +626,40 @@ function showResult(str) {
                                                         <th>Care Center</th>
                                                         <th>Next Generation Risk</th>
                                                         <th>Remarks</th>
+                                                        <th>Edit</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                               
+                                                    <?php 
+                                                    while ($row4 = $result4->fetch_assoc()) {
+
+                                                        $symptoms = $row4["symptoms"];
+                                                        $disease = $row4["disease"];
+                                                        $treated_date = $row4["treated_date"];
+                                                        $petAge = $row4["petAge"];
+                                                        $DOC = $row4["DOC"];
+                                                        $care_center = $row4["care_center"];
+                                                        $nxt_gen_risk = $row4["nxt_gen_risk"];
+                                                        $remarks = $row4["remarks"];
+
+                                                        echo "<tr>";
+                                                        echo "<td> ".$symptoms ." </td>";
+                                                        echo "<td> ".$disease ." </td>";
+                                                        echo "<td> ".$treated_date ."</td>";
+                                                        echo "<td> ".$petAge ." </td>";
+                                                        echo "<td> ".$DOC ." </td>";
+                                                        echo "<td> ".$care_center ." </td>";
+                                                        echo "<td> ".$nxt_gen_risk ." </td>";
+                                                        echo "<td> ".$remarks ." </td>";
+                                                        echo "<td> <button type='button' id='addtreatmentBtn' class='btn btn-primary'>Edit</button>  </td>";
+                                                       
+                                                        echo "</tr>";
+        
+        
+
+                                                     }
+                                                    
+                                                    ?>
                                                     </tbody>
                                                    
                                                 </table>
@@ -820,10 +854,40 @@ function showResult(str) {
                                                         <th>Care Center</th>
                                                         <th>Next Generation Risk</th>
                                                         <th>Remarks</th>
+                                                        <th>Edit</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+                                                    <?php 
+                                                    while ($row5 = $result5->fetch_assoc()) {
 
+                                                        $disease = $row5["disease"];
+                                                        $surgery = $row5["surgery"];
+                                                        $operation_date = $row5["operation_date"];
+                                                        $petAge = $row5["petAge"];
+                                                        $DOC = $row5["DOC"];
+                                                        $care_center = $row5["care_center"];
+                                                        $nxt_gen_risk = $row5["nxt_gen_risk"];
+                                                        $remarks = $row5["remarks"];
+                                                        echo "<tr>";
+                                                       
+                                                        echo "<td> ".$disease ." </td>";
+                                                        echo "<td> ".$surgery ." </td>";
+                                                        echo "<td> ".$operation_date ." </td>";
+                                                        echo "<td> ".$petAge ." </td>";
+                                                        echo "<td> ".$DOC ." </td>";
+                                                        echo "<td> ".$care_center ." </td>";
+                                                        echo "<td> ".$nxt_gen_risk ." </td>";
+                                                        echo "<td> ".$remarks ." </td>";
+                                                        echo "<td> <button type='button' id='addOperationBtn' class='btn btn-primary'>Edit</button>  </td>";
+                                                       
+                                                        echo "</tr>";
+        
+        
+
+                                                     }
+                                                    
+                                                    ?>
                                                     </tbody>
                                                   
                                                 </table>
@@ -1007,10 +1071,38 @@ function showResult(str) {
                                                         <th>Doctor</th>
                                                         <th>Care Center</th>
                                                         <th>Remarks</th>
+                                                        <th>Edit</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                
+                                                    <?php 
+                                                    while ($row6 = $result6->fetch_assoc()) {
+
+                                                        $trName = $row6["trName"];
+                                                        $trType = $row6["trType"];
+                                                        $TrDate = $row6["TrDate"];
+                                                        $petAge = $row6["petAge"];
+                                                        $DOC = $row6["DOC"];
+                                                        $care_center = $row6["care_center"];
+                                                        $remarks = $row6["remarks"];
+
+                                                        echo "<tr>";
+                                                        echo "<td> ".$trName ." </td>";
+                                                        echo "<td> ".$trType ." </td>";
+                                                        echo "<td> ".$TrDate ."</td>";
+                                                        echo "<td> ".$petAge ." </td>";
+                                                        echo "<td> ".$DOC ." </td>";
+                                                        echo "<td> ".$care_center ." </td>";
+                                                        echo "<td> ".$remarks ." </td>";
+                                                        echo "<td> <button type='button' id='addtrainningBtn' class='btn btn-primary'>Edit</button>  </td>";
+                                                       
+                                                        echo "</tr>";
+        
+        
+
+                                                     }
+                                                    
+                                                    ?>
 
                                                     </tbody>
                                                 
