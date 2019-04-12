@@ -734,21 +734,23 @@ function showResult(str) {
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <form>
+                                                            <form action="../controllers/addPetOperations.php" method="POST">
                                                             <div class="modal-body">
                                                                 
 
                                                                     <div class="form-group">
                                                                         <label for="client-mobile" class="col-form-label">Diagnosis/Disease</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="disease3"
                                                                                id="ope-Diagnosis"
                                                                                placeholder="Enter Diagnosis/Disease">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="client-mobile" class="col-form-label">Surgery</label>
-                                                                        <input type="text" class="form-control" name="contact"
+                                                                        <input type="text" class="form-control" name="surgery"
                                                                                id="ope-Surgery" placeholder="Enter Surgery">
                                                                     </div>
+                                                                    <input type="text" name="petId3" value="<?php echo $petid ?>" hidden />
+                                                                    <input type="text" name="petAge3" value="<?php echo $age ?>" hidden />
                                                                     <div class="form-group">
                                                                         <label for="inputdate" class="col-sm-2 control-label">Date</label>
 
@@ -757,7 +759,7 @@ function showResult(str) {
                                                             <span class="input-group-text"><i
                                                                         class="fa fa-calendar"></i></span>
                                                                             </div>
-                                                                            <input type="date" class="form-control" id="ope-date"
+                                                                            <input type="date" class="form-control" id="ope-date" name="operationDate"
                                                                                    data-inputmask="'alias': 'dd/mm/yyyy'"
                                                                                    data-mask
                                                                                    placeholder="Enter Date">
@@ -778,19 +780,19 @@ function showResult(str) {
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Care
                                                                             Center Name</label>
-                                                                        <input type="text" class="form-control" name="address" disabled
+                                                                        <input type="text" class="form-control" name="operationCenter" readonly value="Kandy"
                                                                                id="ope-center" placeholder="Enter Address">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="client-address" class="col-form-label">Next
                                                                             Generation Risk</label>
-                                                                        <input type="text" class="form-control" name="address"
+                                                                        <input type="text" class="form-control" name="op_nxt_gen_risk"
                                                                                id="ope-nxt"
                                                                                placeholder="Enter Next Generation Risk">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Remarks</label>
-                                                                        <textarea class="form-control" rows="3" id="ope-remark"
+                                                                        <textarea class="form-control" rows="3" id="ope-remark" name="remarks3"
                                                                                   placeholder="Enter ..."></textarea>
                                                                     </div>
                                                                 
@@ -799,7 +801,7 @@ function showResult(str) {
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="button" id="opeBtn" class="btn btn-primary">Save</button>
+                                                                <button type="submit" id="opeBtn" class="btn btn-primary">Save</button>
                                                             </div>
                                                             </form>
                                                         </div>
