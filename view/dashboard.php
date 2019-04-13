@@ -47,7 +47,7 @@ session_start();
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      
+
 
       <!-- Sidebar -->
       <?php include'../common/sidebar.php'; ?>
@@ -77,7 +77,7 @@ session_start();
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          
+
           <div class="row">
             <div class="col-md-8">
               <div class="card card-widget">
@@ -86,39 +86,39 @@ session_start();
                 </div>
                 <div class="card-body">
                   <!-- User image -->
-                  
+
                   <img id="blah" class="img-fluid pad" src="#" alt="" />
-  
+
                   <form  id="space" action="controllers/posting.php" method="post">
                       <div class="row">
-                    
+
                           <div id="commenterImage" class='col-md-2'>
-                            <img class="img-circle img-md" src="../dist/img/log_img.jpg" alt="User Image">   
+                            <img class="img-circle img-md" src="../dist/img/log_img.jpg" alt="User Image">
                           </div>
-                         
+
 
                         <div class='col-md-10' style='width=100%'>
-                         
+
 
                           <textarea id="post_content" rows="2"  class="form-control form-control-md" cols="50" placeholder="What's you wanna post?"></textarea>
                         </div>
                     </div>
-                    
-                    
-                    
+
+
+
                   </div>
                   <div class="card-footer">
-                    
+
                     <label class="btn btn-default ">
                         <i class="fa fa-picture-o"></i> <input type="file" id="file" name="file" hidden>
-                        
+
                     </label>
                     <button type="button" id="postBtn" class="btn btn-info btn-md pull-right" onclick="posting()"><i class="fa fa-check"></i> Post</button>
                   </div>
                 </div>
               </form>
             </div>
-            
+
             <!-- /.col -->
             <div class="col-md-4" id="off_to_mobile" >
               <!-- profile summary-->
@@ -158,20 +158,20 @@ session_start();
                     </div>
                     <!-- /.col -->
                   </div>
-                  
+
                   <!-- /.row -->
                 </div>
               </div>
               <div >
-          
+
             </div>
             </div>
-            
+
           </div> <!-- first row -->
-          
-          
+
+
           <!-- timeline --->
-        
+
               <div class="col-md-8" id="post_container">
 
 
@@ -262,49 +262,43 @@ session_start();
                        props:['name']
                    })
 
-                      new Vue({
+                      var vue = new Vue({
                           el: '#post_container',
                           data:{
-                              users: [
-                                  {
-                                      name: "Rasitha",
-                                      title: 'Do the dishes',
-                                  },
-                                  {
-                                      name: "Akalanka",
-                                      title: 'Do the dishes',
-                                  },
-                                  {
-                                      name: "Pasan",
-                                      title: 'Do the dishes',
-                                  }
-                              ],
+                              users: []
                           },
                           methods: {
                               updateData: function () { //this function is to update data --> users
 
+                                  this.users.push({
+                                      name: "WWW",
+                                      title: "qwqwqwqw"
+                                  })
+
+
                               }
                           }
                       });
+
                   </script>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
           </div>
-          
-            
-            
+
+
+
               <!-- clinic day -->
-              
-              
-              
+
+
+
           </div>
-          
+
 
           <!--- timeline post -->
-          
-          
-            
-            
-            
+
+
+
+
+
                 </div><!--/. container-fluid -->
               </section>
               <!-- /.content -->
@@ -344,7 +338,7 @@ session_start();
           <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
           <!-- ChartJS 1.0.2 -->
           <script src="../plugins/chartjs-old/Chart.min.js"></script>
-         
+
 
           <!-- PAGE SCRIPTS -->
           <script src="../dist/js/pages/dashboard2.js"></script>
@@ -353,15 +347,15 @@ session_start();
                 console.log("preview");
                   if (input.files && input.files[0]) {
                     var reader = new FileReader();
-                
+
                     reader.onload = function(e) {
                       $('#blah').attr('src', e.target.result);
                     }
-                
+
                     reader.readAsDataURL(input.files[0]);
                   }
                 }
-                
+
                 $("#file").change(function() {
                   readURL(this);
                 });
@@ -378,6 +372,19 @@ session_start();
         //         window.location = 'https://petland.lk/app/Pet_Land/index.php';
         //     });
         // }
+
+        $(document).ready(
+            function () {
+                var obj1 = {name : "Rasitha"}
+                var obj2 = {name : "Akalanka"}
+                var obj3 = {name : "Pasan"}
+
+                vue.users.push(obj1);
+                vue.users.push(obj2);
+                vue.users.push(obj3);
+
+            }
+        );
           </script>
         </body>
         </html>
