@@ -180,6 +180,7 @@ session_start();
                           is="post-component"
                           v-for="(user,index) in users"
                           v-bind:name="user.name"
+                          v-bind:content = "user.content"
                           v-bind:index="index"
                   ></li>
 
@@ -208,7 +209,7 @@ session_start();
                        <div class="card-body">\
                        <img class="img-fluid pad" src="../dist/img/photo2.png" alt="Photo">\
 \
-                       <p>I took this photo this morning. What do you guys think?</p>\
+                       <p>{{content}}</p>\
 \
                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-heart"></i> Like</button>\
                    <span class="float-right text-muted">127 likes - 3 comments</span>\
@@ -259,7 +260,7 @@ session_start();
                        <!-- /.card-footer -->\
                        </div>\
                        ',
-                       props:['name']
+                       props:['name','content']
                    })
 
                       var vue = new Vue({
@@ -268,12 +269,7 @@ session_start();
                               users: []
                           },
                           methods: {
-                              updateData: function () { //this function is to update data --> users
-
-                                  this.users.push({
-                                      name: "WWW",
-                                      title: "qwqwqwqw"
-                                  })
+                              updateData: function () {
 
 
                               }
@@ -375,13 +371,20 @@ session_start();
 
         $(document).ready(
             function () {
-                var obj1 = {name : "Rasitha"}
-                var obj2 = {name : "Akalanka"}
-                var obj3 = {name : "Pasan"}
+                var posts ;
+                $.ajax({
+                    type:"POST",
+                    dataType:'text',
+                    async:false,
+                    url:"../controllers/posting.php",
+                    data:{},
+                    success: function (data){
+                        posts = JSON.parse(data);
+                        console.log(posts);
+                    }
+                });
 
-                vue.users.push(obj1);
-                vue.users.push(obj2);
-                vue.users.push(obj3);
+                vue.users = posts ;
 
             }
         );
