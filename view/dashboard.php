@@ -1,6 +1,5 @@
 <?php
 session_start();
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,18 +86,18 @@ session_start();
                   
                   <img id="blah" class="img-fluid pad" src="#" alt="" />
   
-                  <form  id="space" action="#" method="post">
+                  <form  id="space" action="controllers/posting.php" method="post">
                       <div class="row">
                     
                           <div id="commenterImage" class='col-md-2'>
                             <img class="img-circle img-md" src="../dist/img/log_img.jpg" alt="User Image">   
                           </div>
                          
-                    
+
                         <div class='col-md-10' style='width=100%'>
                          
 
-                          <textarea rows="2"  class="form-control form-control-md" cols="50" placeholder="What's you wanna post?"></textarea>
+                          <textarea id="post_content" rows="2"  class="form-control form-control-md" cols="50" placeholder="What's you wanna post?"></textarea>
                         </div>
                     </div>
                     
@@ -111,7 +110,7 @@ session_start();
                         <i class="fa fa-picture-o"></i> <input type="file" id="file" name="file" hidden>
                         
                     </label>
-                    <button type="button" id="postBtn" class="btn btn-info btn-md pull-right"><i class="fa fa-check"></i> Post</button>
+                    <button type="button" id="postBtn" class="btn btn-info btn-md pull-right" onclick="posting()"><i class="fa fa-check"></i> Post</button>
                   </div>
                 </div>
               </form>
