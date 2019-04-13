@@ -379,7 +379,12 @@ function posting (){
     url:"../controllers/posting.php",
     data:{'post_content': post_content,'post_photo': photo,'date_time':date_time},
     success: function (data){
-      //alert("done");
+      document.getElementById("post_content").value = "";
+      $('#blah').attr('src', '');
+      fetchPosts();
     }
+
   });
+
+
 }

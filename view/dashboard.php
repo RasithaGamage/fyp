@@ -334,10 +334,9 @@ session_start();
           <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
           <!-- ChartJS 1.0.2 -->
           <script src="../plugins/chartjs-old/Chart.min.js"></script>
-
-
           <!-- PAGE SCRIPTS -->
           <script src="../dist/js/pages/dashboard2.js"></script>
+
           <script>
               function readURL(input) {
                 console.log("preview");
@@ -351,11 +350,12 @@ session_start();
                     reader.readAsDataURL(input.files[0]);
                   }
                 }
-
                 $("#file").change(function() {
                   readURL(this);
                 });
+
           </script>
+
           <script>
         //     function logOut(){
         //         let ajaxConfig = {
@@ -369,25 +369,26 @@ session_start();
         //     });
         // }
 
+        function fetchPosts() {
+            var posts ;
+            $.ajax({
+                type:"POST",
+                dataType:'text',
+                async:false,
+                url:"../controllers/posting.php",
+                data:{},
+                success: function (data){
+                    posts = JSON.parse(data);
+                    console.log(posts);
+                }
+            });
+            vue.users = posts ;
+        }
+
         $(document).ready(
-            function () {
-                var posts ;
-                $.ajax({
-                    type:"POST",
-                    dataType:'text',
-                    async:false,
-                    url:"../controllers/posting.php",
-                    data:{},
-                    success: function (data){
-                        posts = JSON.parse(data);
-                        console.log(posts);
-                    }
-                });
-
-                vue.users = posts ;
-
-            }
+            function () { fetchPosts();}
         );
+
           </script>
         </body>
         </html>

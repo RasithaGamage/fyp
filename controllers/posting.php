@@ -42,8 +42,9 @@ if(empty($_POST['post_content']) && empty($_POST['post_photo'])){
         $content = $row["post_content"];
         $p = new Post($name,$content);
         array_push($p_array,$p );
-    }
 
+    }
+    $p_array =  array_reverse($p_array);
     echo json_encode($p_array);
 }
 
