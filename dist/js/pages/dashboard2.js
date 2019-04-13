@@ -367,24 +367,3 @@ try{
 })
 
 
-function posting (){
-
-  var post_content =  document.getElementById("post_content").value;
-  var photo = document.getElementById("blah").getAttribute('src');
-  var d = new Date();
-  var date_time = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();  //2019-04-03 00:00:00 <---date format
-  $.ajax({
-    type:"POST",
-    dataType:'text',
-    url:"../controllers/posting.php",
-    data:{'post_content': post_content,'post_photo': photo,'date_time':date_time},
-    success: function (data){
-      document.getElementById("post_content").value = "";
-      $('#blah').attr('src', '');
-      fetchPosts();
-    }
-
-  });
-
-
-}

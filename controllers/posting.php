@@ -40,7 +40,9 @@ if(empty($_POST['post_content']) && empty($_POST['post_photo'])){
 
         $name =$row["NAME"];
         $content = $row["post_content"];
-        $p = new Post($name,$content);
+        $photo = $row["post_photo"];
+        $image = file_get_contents('../dist/img/post_materials/'.$photo);
+        $p = new Post($name,$content,'data:image/jpg;base64,'.base64_encode($image));
         array_push($p_array,$p );
 
     }
@@ -52,12 +54,14 @@ class Post
 {
     var $name;
     var $content;
+    var $photo;
 
 
- public function __construct($N,$C)
+ public function __construct($N,$C,$I)
  {
       $this->name = $N;
       $this->content = $C;
+      $this->photo = $I;
  }
 }
 

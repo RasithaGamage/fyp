@@ -181,6 +181,7 @@ session_start();
                           v-for="(user,index) in users"
                           v-bind:name="user.name"
                           v-bind:content = "user.content"
+                          v-bind:photo = "user.photo"
                           v-bind:index="index"
                   ></li>
 
@@ -207,7 +208,7 @@ session_start();
                        </div>\
                        <!-- /.card-header -->\
                        <div class="card-body">\
-                       <img class="img-fluid pad" src="../dist/img/photo2.png" alt="Photo">\
+                       <img class="img-fluid pad" v-bind:src="photo" alt="Photo">\
 \
                        <p>{{content}}</p>\
 \
@@ -260,7 +261,7 @@ session_start();
                        <!-- /.card-footer -->\
                        </div>\
                        ',
-                       props:['name','content']
+                       props:['name','content','photo']
                    })
 
                       var vue = new Vue({
@@ -271,7 +272,6 @@ session_start();
                           methods: {
                               updateData: function () {
 
-
                               }
                           }
                       });
@@ -279,39 +279,23 @@ session_start();
                   </script>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
           </div>
-
-
-
-              <!-- clinic day -->
-
-
-
+          <!-- clinic day -->
           </div>
-
-
           <!--- timeline post -->
-
-
-
-
-
                 </div><!--/. container-fluid -->
               </section>
               <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-
             <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
               <!-- Control sidebar content goes here -->
             </aside>
             <!-- /.control-sidebar -->
-
             <!-- Main Footer -->
             <?php include '../common/footer.php';?>
           </div>
           <!-- ./wrapper -->
-
           <!-- REQUIRED SCRIPTS -->
           <!-- jQuery -->
           <!--<script src="../plugins/jquery/jquery.min.js"></script>-->
@@ -320,10 +304,8 @@ session_start();
           <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
           <!-- AdminLTE App -->
           <script src="../dist/js/adminlte.js"></script>
-
           <!-- OPTIONAL SCRIPTS -->
           <script src="../dist/js/demo.js"></script>
-
           <!-- PAGE PLUGINS -->
           <!-- SparkLine -->
           <script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -342,18 +324,15 @@ session_start();
                 console.log("preview");
                   if (input.files && input.files[0]) {
                     var reader = new FileReader();
-
                     reader.onload = function(e) {
                       $('#blah').attr('src', e.target.result);
                     }
-
                     reader.readAsDataURL(input.files[0]);
                   }
                 }
                 $("#file").change(function() {
                   readURL(this);
                 });
-
           </script>
 
           <script>
@@ -369,6 +348,26 @@ session_start();
         //     });
         // }
 
+        function posting (){
+
+            var post_content =  document.getElementById("post_content").value;
+            var photo = document.getElementById("blah").getAttribute('src');
+            var d = new Date();
+            var date_time = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();  //2019-04-03 00:00:00 <---date format
+            $.ajax({
+                type:"POST",
+                dataType:'text',
+                url:"../controllers/posting.php",
+                data:{'post_content': post_content,'post_photo': photo,'date_time':date_time},
+                success: function (data){
+                    document.getElementById("post_content").value = "";
+                    $('#blah').attr('src', '');
+                    fetchPosts();
+                }
+
+            });
+        }
+
         function fetchPosts() {
             var posts ;
             $.ajax({
@@ -378,6 +377,7 @@ session_start();
                 url:"../controllers/posting.php",
                 data:{},
                 success: function (data){
+                    console.log(posts);
                     posts = JSON.parse(data);
                     console.log(posts);
                 }
